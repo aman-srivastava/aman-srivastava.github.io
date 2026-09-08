@@ -1,11 +1,11 @@
 :root {
-  --paper: #f3f1ea;
-  --ink: #18201c;
-  --muted: #606760;
-  --line: #c9cec6;
-  --accent: #c44b32;
-  --sage: #dce3d7;
-  --white: #fffef9;
+  --paper: #0d1014;
+  --ink: #f1f4ef;
+  --muted: #9ca6a1;
+  --line: #343b3d;
+  --accent: #45d6c5;
+  --sage: #20292a;
+  --white: #f8faf7;
   --page: min(1120px, calc(100% - 64px));
 }
 
@@ -20,7 +20,8 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(rgba(24, 32, 28, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 78% 12%, rgba(69, 214, 197, 0.08), transparent 27rem),
+    linear-gradient(rgba(241, 244, 239, 0.035) 1px, transparent 1px),
     var(--paper);
   background-size: 100% 32px;
   color: var(--ink);
@@ -123,6 +124,8 @@ nav a:hover,
 
 .print-button svg,
 .links svg,
+.location svg,
+.organization svg,
 .primary-link svg {
   width: 16px;
   height: 16px;
@@ -158,9 +161,19 @@ h1 {
 
 .lede {
   max-width: 650px;
-  margin: 46px 0 28px;
+  margin: 30px 0 28px;
   font-size: clamp(19px, 2.2vw, 27px);
   line-height: 1.45;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 38px 0 0;
+  color: var(--muted);
+  font: 400 12px "DM Mono", monospace;
+  text-transform: uppercase;
 }
 
 .links {
@@ -189,7 +202,7 @@ h1 {
 .portrait-frame::after {
   position: absolute;
   inset: 10px;
-  border: 1px solid rgba(255, 254, 249, 0.75);
+  border: 1px solid rgba(241, 244, 239, 0.55);
   content: "";
   pointer-events: none;
 }
@@ -199,7 +212,7 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.72) contrast(1.03);
+  filter: saturate(0.62) contrast(1.08) brightness(0.88);
 }
 
 .portrait-wrap figcaption {
@@ -261,8 +274,56 @@ h1 {
 .role > p,
 .connect-content > p {
   max-width: 720px;
-  color: #353d37;
+  color: var(--ink);
   font-size: 19px;
+}
+
+.credentials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(36px, 7vw, 90px);
+}
+
+.credential-label {
+  margin: 0 0 18px;
+  color: var(--accent);
+  font: 500 11px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.organization-list {
+  border-top: 1px solid var(--line);
+}
+
+.organization {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 16px;
+  gap: 15px;
+  align-items: center;
+  min-height: 78px;
+  border-bottom: 1px solid var(--line);
+}
+
+.organization:hover {
+  color: var(--accent);
+}
+
+.organization img {
+  width: 38px;
+  height: 38px;
+  padding: 5px;
+  border-radius: 3px;
+  background: var(--white);
+  object-fit: contain;
+}
+
+.organization span {
+  min-width: 0;
+  font: 500 16px/1.35 "Manrope", sans-serif;
+}
+
+.organization svg {
+  color: var(--muted);
 }
 
 .focus-grid {
@@ -397,6 +458,11 @@ footer p {
     gap: 7px;
   }
 
+  .credentials {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
   .focus-grid {
     grid-template-columns: 1fr;
   }
@@ -456,24 +522,63 @@ footer p {
   .intro {
     display: block;
     min-height: 0;
-    padding: 0 0 12mm;
+    padding: 0 0 7mm;
   }
 
   h1 {
-    font-size: 54pt;
+    font-size: 44pt;
   }
 
   .lede {
     max-width: 150mm;
-    margin: 8mm 0 5mm;
-    font-size: 14pt;
+    margin: 5mm 0 3mm;
+    font-size: 12pt;
+  }
+
+  .location {
+    margin-top: 4mm;
   }
 
   .section {
-    grid-template-columns: 38mm 1fr;
-    gap: 8mm;
-    padding: 9mm 0;
+    grid-template-columns: 34mm 1fr;
+    gap: 6mm;
+    padding: 5mm 0;
     break-inside: avoid;
+  }
+
+  .role-heading {
+    margin-bottom: 3mm;
+  }
+
+  .role-heading h3 {
+    font-size: 26pt;
+  }
+
+  .role > p,
+  .connect-content > p {
+    font-size: 10pt;
+  }
+
+  .organization {
+    grid-template-columns: 30px minmax(0, 1fr);
+    min-height: 11mm;
+  }
+
+  .organization img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .organization svg {
+    display: none;
+  }
+
+  .focus-grid h3 {
+    font-size: 15pt;
+  }
+
+  .focus-grid p {
+    font-size: 8.5pt;
   }
 
   .focus-grid svg {
