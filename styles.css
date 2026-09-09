@@ -123,12 +123,21 @@ nav a:hover,
 }
 
 .print-button svg,
-.links svg,
 .location svg,
 .organization svg,
 .primary-link svg {
   width: 16px;
   height: 16px;
+}
+
+.brand-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.github-icon {
+  filter: brightness(0) invert(1);
 }
 
 .intro {
@@ -518,6 +527,10 @@ footer p {
     background: #fff;
     color: #000;
     font-size: 10pt;
+  }
+
+  .github-icon {
+    filter: none;
   }
 
   .site-header,
